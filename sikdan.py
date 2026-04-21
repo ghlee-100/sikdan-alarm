@@ -49,7 +49,7 @@ def get_today_meal():
     except:
         return f"📅 {today_str}\n식단 파일이 없습니다."
 
-    today_meal = meal_data.get(today_str)
+    today_meal = meal_data.get(date_key)
     if not today_meal:
         return f"📅 {today_str}\n오늘 식단 정보가 없습니다."
 
