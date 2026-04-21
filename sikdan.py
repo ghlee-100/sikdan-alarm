@@ -36,7 +36,8 @@ def get_today_meal():
         print("주말이라 식단 알림 없음")
         return None
 
-    today_str = today.strftime("%Y-%m-%d")
+    weekday_names = ["월", "화", "수", "목", "금", "토", "일"]
+today_str = today.strftime("%Y-%m-%d") + f"({weekday_names[today.weekday()]})"
 
     try:
         with open(MEAL_FILE, "r", encoding="utf-8") as f:
@@ -48,13 +49,13 @@ def get_today_meal():
     if not today_meal:
         return f"📅 {today_str}\n오늘 식단 정보가 없습니다."
 
-    result = f"🍱 {today_str} 어린이집 식단\n\n"
+    result = f"🍽️ {today_str} 어린이집 식단\n\n"
     if today_meal.get("오전간식"):
-        result += f"🌅 오전간식:\n{today_meal['오전간식']}\n\n"
+        result += f"🥐 오전간식:\n{today_meal['오전간식']}\n\n"
     if today_meal.get("점심"):
-        result += f"🍚 점심:\n{today_meal['점심']}\n\n"
+        result += f"☀️ 점심:\n{today_meal['점심']}\n\n"
     if today_meal.get("오후간식"):
-        result += f"🌆 오후간식:\n{today_meal['오후간식']}\n\n"
+        result += f"🧁 오후간식:\n{today_meal['오후간식']}\n\n"
     return result.strip()
 
 def send_kakao_message(message, access_token, refresh_token):
