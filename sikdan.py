@@ -36,8 +36,12 @@ def get_today_meal():
         print("주말이라 식단 알림 없음")
         return None
 
+   # 검색용 (json 키와 일치)
+    date_key = today.strftime("%Y-%m-%d")
+
+# 표시용 (카카오톡 메시지에 보여줄 형식)
     weekday_names = ["월", "화", "수", "목", "금", "토", "일"]
-    today_str = today.strftime("%Y-%m-%d") + f"({weekday_names[today.weekday()]})"
+    today_str = date_key + f"({weekday_names[today.weekday()]})"
 
     try:
         with open(MEAL_FILE, "r", encoding="utf-8") as f:
