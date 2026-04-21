@@ -1,0 +1,27 @@
+name: 어린이집 식단 알림
+
+on:
+  schedule:
+    - cron: '0 22 * * 0-4'  # 한국시간 오전 7시 (UTC 22시, 일~목)
+  workflow_dispatch:
+
+jobs:
+  send-meal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 설치
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: requests 설치
+        run: pip install requests
+
+      - name: 식단 알림 실행
+        env:
+          KAKAO_ACCESS_TOKEN: ${{ secrets.KAKAO_ACCESS_TOKEN }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+        run: python sikdan.py
