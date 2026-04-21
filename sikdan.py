@@ -74,7 +74,7 @@ def send_kakao_message(message, access_token, refresh_token):
                         "web_url": "https://www.sneducare.or.kr",
                         "mobile_web_url": "https://www.sneducare.or.kr"
     }
-})
+})}
         )
 
     response = do_send(access_token)
