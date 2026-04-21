@@ -53,7 +53,7 @@ def get_today_meal():
     if not today_meal:
         return f"📅 {today_str}\n오늘 식단 정보가 없습니다."
 
-    result = f"🍽️ {today_str} 어린이집 식단\n\n"
+    result = f"🍽️ 성남시 어린이집 식단\n{today_str}\n\n"
     if today_meal.get("오전간식"):
         result += f"🥐 오전간식:\n{today_meal['오전간식']}\n\n"
     if today_meal.get("점심"):
