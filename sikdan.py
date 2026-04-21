@@ -68,13 +68,19 @@ def send_kakao_message(message, access_token, refresh_token):
             "https://kapi.kakao.com/v2/api/talk/memo/default/send",
             headers={"Authorization": f"Bearer {token}"},
             data={"template_object": json.dumps({
-                "object_type": "text",
-                "text": message,
-                "link": {
-                    "web_url": "https://www.sneducare.or.kr",
-                    "mobile_web_url": "https://www.sneducare.or.kr"
-                }
-            })}
+                    "object_type": "feed",
+                    "content": {
+                        "title": "성남시 어린이집 식단",
+                        "description": message,
+                        "image_url": "https://raw.githubusercontent.com/ghlee-100/sikdan-alarm/main/image.png",
+                        "image_width": 800,
+                        "image_height": 400,
+                        "link": {
+                            "web_url": "https://www.sneducare.or.kr",
+                            "mobile_web_url": "https://www.sneducare.or.kr"
+        }
+    }
+})}
         )
 
     response = do_send(access_token)
