@@ -37,7 +37,7 @@ def get_today_meal():
         return None
 
     weekday_names = ["월", "화", "수", "목", "금", "토", "일"]
-today_str = today.strftime("%Y-%m-%d") + f"({weekday_names[today.weekday()]})"
+    today_str = today.strftime("%Y-%m-%d") + f"({weekday_names[today.weekday()]})"
 
     try:
         with open(MEAL_FILE, "r", encoding="utf-8") as f:
