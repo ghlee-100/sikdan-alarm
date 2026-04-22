@@ -2,7 +2,7 @@ name: 어린이집 식단 알림
 
 on:
   schedule:
-    - cron: '0 20 * * 1-5'  # 한국시간 오전 7시 (UTC 22시, 일~목)
+    - cron: '0 20 * * 1-5'  # 한국시간 오전 7시 (UTC 20시, 월~금)
   workflow_dispatch:
 
 jobs:
