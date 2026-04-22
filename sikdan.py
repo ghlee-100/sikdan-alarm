@@ -1,7 +1,9 @@
 import requests
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+KST = timezone(timedelta(hours=9))
+today = datetime.now(KST)
 
 KAKAO_REST_API_KEY = "dea7d1fa29f51adb7f595a00ea763914"
 KAKAO_CLIENT_SECRET = "oc9Xo304w1G25EoHQf4fW7EvNoZTm2wv"
