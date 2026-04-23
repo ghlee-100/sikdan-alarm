@@ -33,7 +33,8 @@ def refresh_access_token(refresh_token):
         raise Exception(f"토큰 갱신 실패: {result}")
 
 def get_today_meal():
-    today = datetime.now()
+    KST = timezone(timedelta(hours=9))
+    today = datetime.now(KST)
     if today.weekday() >= 5:
         print("주말이라 식단 알림 없음")
         return None
