@@ -26,11 +26,12 @@ def get_today_meal():
         with open(MEAL_FILE, "r", encoding="utf-8") as f:
             meal_data = json.load(f)
     except:
-        return f"⭐ {today_str}\n식단 파일이 없습니다."
-
+        print("식단 파일이 없습니다.")
+        return None
     today_meal = meal_data.get(date_key)
     if not today_meal:
-        return f"⭐ {today_str}\n오늘 식단 정보가 없습니다."
+        print("오늘 식단 정보가 없습니다.")
+        return None
 
     result = f"{today_str}\n\n"
     if today_meal.get("오전간식"):
